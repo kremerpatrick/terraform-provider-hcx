@@ -55,7 +55,7 @@ type NetworkIpRange struct {
 type NetworkProfileResult struct {
 	Success   bool               `json:"success"`
 	Completed bool               `json:"completed"`
-	Time      uint64             `json:"time"`
+	Time      int                `json:"time"`
 	Data      NetworkProfileData `json:"data"`
 }
 
