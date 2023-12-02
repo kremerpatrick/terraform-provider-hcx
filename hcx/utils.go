@@ -19,8 +19,8 @@ type Job_result struct {
 	IsRolledBack            bool   `json:"isRolledBack"`
 	CreateTimeEpoch         int    `json:"createTimeEpoch"`
 	AbsoluteExpireTimeEpoch int    `json:"absoluteExpireTimeEpoch"`
-	StartTime               uint64 `json:"startTime"`
-	EndTime                 uint64 `json:"endTime"`
+	StartTime               int64  `json:"startTime"`
+	EndTime                 int64  `json:"endTime"`
 	PercentComplete         int    `json:"percentComplete"`
 	IsDone                  bool   `json:"isDone"`
 	DidFail                 bool   `json:"didFail"`
@@ -48,7 +48,7 @@ type PostResouceContainerListBody struct {
 type PostResouceContainerListResult struct {
 	Success   bool                               `json:"success"`
 	Completed bool                               `json:"completed"`
-	Time      uint64                             `json:"time"`
+	Time      int64                              `json:"time"`
 	Data      PostResouceContainerListResultData `json:"data"`
 }
 
@@ -130,7 +130,7 @@ type GetVcInventoryResultDataItemChildrenChildren struct {
 type GetVcDatastoreResult struct {
 	Success   bool                     `json:"success"`
 	Completed bool                     `json:"completed"`
-	Time      uint64                   `json:"time"`
+	Time      int64                    `json:"time"`
 	Data      GetVcDatastoreResultData `json:"data"`
 }
 
@@ -157,7 +157,7 @@ type GetVcDatastoreFilter struct {
 type GetVcDvsResult struct {
 	Success   bool               `json:"success"`
 	Completed bool               `json:"completed"`
-	Time      uint64             `json:"time"`
+	Time      int64              `json:"time"`
 	Data      GetVcDvsResultData `json:"data"`
 }
 
@@ -194,7 +194,7 @@ type PostCloudListBody struct {
 type PostCloudListResult struct {
 	Success   bool                    `json:"success"`
 	Completed bool                    `json:"completed"`
-	Time      uint64                  `json:"time"`
+	Time      int64                   `json:"time"`
 	Data      PostCloudListResultData `json:"data"`
 }
 
