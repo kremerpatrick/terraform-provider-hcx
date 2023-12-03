@@ -24,7 +24,7 @@ type Job_result struct {
 	PercentComplete         int    `json:"percentComplete"`
 	IsDone                  bool   `json:"isDone"`
 	DidFail                 bool   `json:"didFail"`
-	TimeToExecute           int    `json:"timeToExecute"`
+	TimeToExecute           int64  `json:"timeToExecute"`
 }
 
 type Task_result struct {
