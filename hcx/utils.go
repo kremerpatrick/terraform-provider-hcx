@@ -17,8 +17,8 @@ type Job_result struct {
 	IsQueued                bool   `json:"isQueued"`
 	IsCancelled             bool   `json:"isCancelled"`
 	IsRolledBack            bool   `json:"isRolledBack"`
-	CreateTimeEpoch         int    `json:"createTimeEpoch"`
-	AbsoluteExpireTimeEpoch int    `json:"absoluteExpireTimeEpoch"`
+	CreateTimeEpoch         int64  `json:"createTimeEpoch"`
+	AbsoluteExpireTimeEpoch int64  `json:"absoluteExpireTimeEpoch"`
 	StartTime               int64  `json:"startTime"`
 	EndTime                 int64  `json:"endTime"`
 	PercentComplete         int    `json:"percentComplete"`
