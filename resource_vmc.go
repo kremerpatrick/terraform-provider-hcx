@@ -228,7 +228,7 @@ func resourceVmcDelete(ctx context.Context, d *schema.ResourceData, m interface{
 			// instead of JSON.
 			errcount += 1
 			hclog.Default().Debug("[DEBUG] - resourceVmcDelete() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
-			if errcount > 6 {
+			if errcount > 12 {
 				return diag.FromErr(err)
 			}
 		}
