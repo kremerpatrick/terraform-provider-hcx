@@ -1,4 +1,4 @@
-module github.com/adeleporte/terraform-provider-hcx
+module github.com/kremerpatrick/terraform-provider-hcx
 
 go 1.15
 

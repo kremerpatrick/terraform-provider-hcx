@@ -55,7 +55,7 @@ To install this provider, copy and paste this code into your Terraform configura
 terraform {
   required_providers {
     hcx = {
-      source = "adeleporte/hcx"
+      source = "kremerpatrick/hcx"
     }
   }
 }
@@ -83,12 +83,12 @@ provider "hcx" {
 ## Cloning the Project
 
 First, you will want to clone the repository to
-`$GOPATH/src/github.com/adeleporte/terraform-provider-hcx`:
+`$GOPATH/src/github.com/kremerpatrick/terraform-provider-hcx`:
 
 ```sh
-mkdir -p $GOPATH/src/github.com/adeleporte
-cd $GOPATH/src/github.com/adeleporte
-git clone https://github.com/adeleporte/terraform-provider-hcx.git
+mkdir -p $GOPATH/src/github.com/kremerpatrick
+cd $GOPATH/src/github.com/kremerpatrick
+git clone https://github.com/kremerpatrick/terraform-provider-hcx.git
 ```
 
 ## Building and Installing the Provider
@@ -96,7 +96,7 @@ git clone https://github.com/adeleporte/terraform-provider-hcx.git
 After the clone has been completed, you can enter the provider directory and build the provider.
 
 ```sh
-cd $GOPATH/src/github.com/adeleporte/terraform-provider-hcx
+cd $GOPATH/src/github.com/kremerpatrick/terraform-provider-hcx
 make
 ```
 
