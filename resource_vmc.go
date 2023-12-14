@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	hcx "github.com/kremerpatrick/terraform-provider-hcx/hcx"
@@ -97,11 +98,12 @@ func resourceVmcCreate(ctx context.Context, d *schema.ResourceData, m interface{
 			sddc, err = hcx.GetSddcByName(client, sddc_name)
 		}
 		if err != nil {
-			errcount += 1
 			// Attempt to bypass recurring situation where the HCX API
 			// returns status 502 with a proxy server error, and an HTML response
 			// instead of JSON.
-			if errcount > 6 {
+			errcount += 1
+			hclog.Default().Debug("[DEBUG] - resourceVmcCreate() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
+			if errcount > 12 {
 				return diag.FromErr(err)
 			}
 		}
@@ -221,10 +223,11 @@ func resourceVmcDelete(ctx context.Context, d *schema.ResourceData, m interface{
 			sddc, err = hcx.GetSddcByName(client, sddc_name)
 		}
 		if err != nil {
-			errcount += 1
 			// Attempt to bypass recurring situation where the HCX API
 			// returns status 502 with a proxy server error, and an HTML response
 			// instead of JSON.
+			errcount += 1
+			hclog.Default().Debug("[DEBUG] - resourceVmcDelete() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
 			if errcount > 6 {
 				return diag.FromErr(err)
 			}
