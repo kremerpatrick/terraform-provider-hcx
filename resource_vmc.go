@@ -102,7 +102,7 @@ func resourceVmcCreate(ctx context.Context, d *schema.ResourceData, m interface{
 			// returns status 502 with a proxy server error, and an HTML response
 			// instead of JSON.
 			errcount += 1
-			hclog.Default().Debug("[DEBUG] - resourceVmcCreate() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
+			hclog.Default().Info("[INFO] - resourceVmcCreate() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
 			if errcount > 12 {
 				return diag.FromErr(err)
 			}
@@ -227,7 +227,7 @@ func resourceVmcDelete(ctx context.Context, d *schema.ResourceData, m interface{
 			// returns status 502 with a proxy server error, and an HTML response
 			// instead of JSON.
 			errcount += 1
-			hclog.Default().Debug("[DEBUG] - resourceVmcDelete() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
+			hclog.Default().Info("[INFO] - resourceVmcDelete() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", errcount)
 			if errcount > 12 {
 				return diag.FromErr(err)
 			}
