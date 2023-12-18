@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	hcx "github.com/kremerpatrick/terraform-provider-hcx/hcx"
@@ -101,7 +102,7 @@ func resourceVmcCreate(ctx context.Context, d *schema.ResourceData, m interface{
 			// returns status 502 with a proxy server error, and an HTML response
 			// instead of JSON.
 			errcount += 1
-			//hclog.Default().Info("[INFO] - resourceVmcCreate() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", strconv.Itoa(errcount))
+			hclog.Default().Info("[INFO] - resourceVmcCreate() - Error retrieving SDDC status: ", "error", err.Error(), "Errcount:", errcount)
 			if errcount > 12 {
 				return diag.FromErr(err)
 			}
@@ -226,7 +227,7 @@ func resourceVmcDelete(ctx context.Context, d *schema.ResourceData, m interface{
 			// returns status 502 with a proxy server error, and an HTML response
 			// instead of JSON.
 			errcount += 1
-			//hclog.Default().Info("[INFO] - resourceVmcDelete() - Error retrieving SDDC status: ", err.Error(), ". Errcount:", strconv.Itoa(errcount))
+			hclog.Default().Info("[INFO] - resourceVmcDelete() - Error retrieving SDDC status: ", "error", err.Error(), "Errcount:", errcount)
 			if errcount > 12 {
 				return diag.FromErr(err)
 			}
